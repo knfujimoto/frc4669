@@ -14,6 +14,7 @@ import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4669.robot.commands.TurnLeft90;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4669.robot.subsystems.SensorSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.WingLeft;
 import org.usfirst.frc.team4669.robot.subsystems.WingRight;
 
@@ -32,7 +33,8 @@ public class Robot extends IterativeRobot {
 	public static WingLeft leftWing = new WingLeft();
 	public static WingRight rightWing = new WingRight();
 	public AxisCamera axisCamera = new AxisCamera("10.46.69.11");
-	public static USBCamera usbCamera = new USBCamera();  
+	public static USBCamera usbCamera = new USBCamera();
+	public static SensorSubsystem sensors = new SensorSubsystem();
 	
 	
     Command autonomousCommand;
@@ -98,5 +100,6 @@ public class Robot extends IterativeRobot {
     public void log() {
     	leftWing.log();
     	rightWing.log();
+    	sensors.log();
     }
 }

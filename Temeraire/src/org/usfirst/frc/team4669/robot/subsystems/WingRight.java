@@ -15,7 +15,7 @@ public class WingRight extends Subsystem {
 		joint.enableControl();
 		joint.changeControlMode(CANTalon.ControlMode.Position);
     	joint.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-    	joint.setPID(1.0, 0.0, 0.0);
+    	joint.setPID(0.1, 0.0001, 0.0);
     	joint.enableBrakeMode(true);
 	}
     

@@ -7,12 +7,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class WingLeftGroundReset extends Command {
+public class FaceFlat extends Command {
 
-    public WingLeftGroundReset() {
+    public FaceFlat() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.leftWing);
+    	requires(Robot.drive);
+    	requires(Robot.sensors);
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +22,17 @@ public class WingLeftGroundReset extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.leftWing.reset();
+    	if (Robot.sensors.getUSensor1() > Robot.sensors.getUSensor2()) {
+    		Robot.drive.joystickDrive(0.5, 0.0);
+    	}
+    	if (Robot.sensors.getUSensor1() < Robot.sensors.getUSensor2()) {
+    		Robot.drive.joystickDrive(0.0, 0.5);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.leftWing.getPosition()==0;
+        return Robot.sensors.getUSensor1() == Robot.sensors.getUSensor2();
     }
 
     // Called once after isFinished returns true

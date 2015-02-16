@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4669.robot.commands.DriveForward;
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4669.robot.commands.FaceFlat;
 import org.usfirst.frc.team4669.robot.commands.TurnLeft90;
 import org.usfirst.frc.team4669.robot.commands.WingLeftDown;
 import org.usfirst.frc.team4669.robot.commands.WingLeftGroundReset;
@@ -78,10 +79,12 @@ public class OI {
 		buttonL2.whileHeld(new WingLeftDown());
 		buttonL3.whileHeld(new WingLeftUp());
 		buttonL11.whenPressed(new WingLeftGroundReset());
-		buttonL1.whenPressed(new TurnLeft90());
+		buttonL4.whenPressed(new TurnLeft90());
 		buttonR1.whenPressed(new DriveForward(1));
 		buttonR2.whileHeld(new WingRightDown());
 		buttonR3.whileHeld(new WingRightUp());
+		buttonR4.whenPressed(new FaceFlat());
+		
 	}
 	
 	public Joystick getLeftJoystick() {
