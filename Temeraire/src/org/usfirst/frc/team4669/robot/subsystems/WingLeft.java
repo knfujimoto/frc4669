@@ -15,12 +15,13 @@ public class WingLeft extends Subsystem {
     	motor.enableControl();
     	motor.changeControlMode(CANTalon.ControlMode.Position);
     	motor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-    	motor.setPID(0.1, 0.0001, 0.0);
+    	motor.setPID(0.1, 0.000, 0.0);
     	motor.enableBrakeMode(true);
     	motor.setForwardSoftLimit(13824);
     	motor.enableForwardSoftLimit(true);
     	motor.setReverseSoftLimit(0);
     	motor.enableReverseSoftLimit(true);
+    	motor.setF(1.0);
     }
     	
     // Put methods for controlling this subsystem

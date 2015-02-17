@@ -11,12 +11,13 @@ public class WingRight extends Subsystem {
 	CANTalon joint;
 	
 	public WingRight() {
-		joint = new CANTalon(1);
+		joint = new CANTalon(3);
 		joint.enableControl();
 		joint.changeControlMode(CANTalon.ControlMode.Position);
     	joint.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-    	joint.setPID(0.1, 0.0001, 0.0);
+    	joint.setPID(0.1, 0.000, 0.0);
     	joint.enableBrakeMode(true);
+    	joint.setF(1.0);
 	}
     
     // Put methods for controlling this subsystem

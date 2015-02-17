@@ -1,18 +1,8 @@
 package org.usfirst.frc.team4669.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
-import org.usfirst.frc.team4669.robot.commands.DriveForward;
-import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4669.robot.commands.TurnLeft90;
-import org.usfirst.frc.team4669.robot.commands.WingLeftDown;
-import org.usfirst.frc.team4669.robot.commands.WingLeftGroundReset;
-import org.usfirst.frc.team4669.robot.commands.WingLeftUp;
-import org.usfirst.frc.team4669.robot.commands.WingRightDown;
-import org.usfirst.frc.team4669.robot.commands.WingRightUp;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -76,13 +66,7 @@ public class OI {
 				buttonR11 = new JoystickButton(rightStick, 11);
 	
 	// Assign a command to button
-		buttonL2.whileHeld(new WingLeftDown());
-		buttonL3.whileHeld(new WingLeftUp());
-		buttonL11.whenPressed(new WingLeftGroundReset());
-		buttonL4.whenPressed(new TurnLeft90());
-		buttonR1.whenPressed(new DriveForward(1));
-		buttonR2.whileHeld(new WingRightDown());
-		buttonR3.whileHeld(new WingRightUp());
+		
 		
 	}
 	
@@ -92,6 +76,14 @@ public class OI {
 	
 	public Joystick getRightJoystick() {
 		return rightStick;
+	}
+	
+	public boolean buttonR3Pressed() {
+		return rightStick.getRawButton(3);
+	}
+	
+	public boolean buttonR2Pressed() {
+		return rightStick.getRawButton(2);
 	}
 }
 
