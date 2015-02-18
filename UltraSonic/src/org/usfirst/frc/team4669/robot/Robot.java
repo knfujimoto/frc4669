@@ -2,6 +2,7 @@
 package org.usfirst.frc.team4669.robot;
 
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Joystick;
@@ -29,14 +30,20 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends SampleRobot {
     RobotDrive myRobot;
     Joystick stick;
-    Ultrasonic clicker;
+    Ultrasonic usSensor1;
+    Ultrasonic usSensor2;
+    AnalogInput aiSensor1;
+    AnalogInput aiSensor2;
     double distance;
 
     public Robot() {
         myRobot = new RobotDrive(0, 1);
         myRobot.setExpiration(0.1);
         stick = new Joystick(0);
-        clicker = new Ultrasonic(0,1);
+        usSensor1 = new Ultrasonic(0,1);
+        usSensor2 = new Ultrasonic(2,3);
+        aiSensor1 = new AnalogInput(0);
+        aiSensor2 = new AnalogInput(1);
     }
 
     /**
@@ -56,12 +63,28 @@ public class Robot extends SampleRobot {
         myRobot.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled()) {
             myRobot.arcadeDrive(stick); // drive with arcade style (use right stick)
+            LiveWindow.setEnabled(true);
             
-            clicker.ping();
-            if (clicker.isRangeValid()) {
-            	distance = clicker.getRangeInches();
-            	LiveWindow.addSensor("Ultrasonic", 0, clicker);
+            usSensor1.setEnabled(true);
+            usSensor1.startLiveWindowMode();
+            usSensor1.updateTable();
+            usSensor1.ping();
+            if (usSensor1.isRangeValid()) {
+            	usSensor1.getRangeInches();	
             }
+            
+            usSensor2.startLiveWindowMode();
+            usSensor2.updateTable();
+            usSensor2.ping();
+            if (usSensor2.isRangeValid()) {
+            	usSensor2.getRangeInches();	
+            }
+            
+            aiSensor1.startLiveWindowMode();
+            aiSensor1.updateTable();
+            aiSensor2.startLiveWindowMode();
+            aiSensor2.updateTable();
+            
             Timer.delay(0.005);		// wait for a motor update time
         }
     }

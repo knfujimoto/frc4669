@@ -16,7 +16,7 @@ public class DriveTrain extends Subsystem {
     RobotDrive drivetrain;
     
     public DriveTrain() {
-    	leftMotor = new CANTalon(3);
+    	leftMotor = new CANTalon(1);
     	rightMotor = new CANTalon(4);
     	leftMotor.enableControl();
     	rightMotor.enableControl();

@@ -28,7 +28,7 @@ public class WingLeftUp extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Robot.leftWing.getPosition()%3456==0;
     }
 
     // Called once after isFinished returns true

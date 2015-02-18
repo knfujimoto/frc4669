@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4669.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -78,10 +79,11 @@ public class OI {
 		buttonL2.whileHeld(new WingLeftDown());
 		buttonL3.whileHeld(new WingLeftUp());
 		buttonL11.whenPressed(new WingLeftGroundReset());
-		buttonL1.whenPressed(new TurnLeft90());
+		buttonL4.whenPressed(new TurnLeft90());
 		buttonR1.whenPressed(new DriveForward(1));
 		buttonR2.whileHeld(new WingRightDown());
 		buttonR3.whileHeld(new WingRightUp());
+		
 	}
 	
 	public Joystick getLeftJoystick() {
