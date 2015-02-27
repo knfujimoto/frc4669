@@ -2,15 +2,15 @@ package org.usfirst.frc.team4669.robot.commands;
 
 import org.usfirst.frc.team4669.robot.Robot;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class StateChange extends Command {
+public class MoveElevator extends Command {
 
-    public StateChange() {
+    public MoveElevator() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lift);
@@ -21,15 +21,20 @@ public class StateChange extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+	protected void execute() {
     	if (Robot.oi.buttonR3Pressed()) {
-   // 		Robot.lift.stateChangeUp();
-    		Timer.delay(1.0);
+    		Robot.lift.setTop(Robot.lift.getTop() + 3456.0);
     	}
     	if (Robot.oi.buttonR2Pressed()) {
-    //		Robot.lift.stateChangeDown();
-    		Timer.delay(1.0);
+    		Robot.lift.setTop(Robot.lift.getTop() - 1728.0);
     	}
+    	if (Robot.oi.buttonL3Pressed()) {
+    		Robot.lift.setBottom(Robot.lift.getBottom() + 1728.0);
+    	}
+    	if (Robot.oi.buttonL2Pressed()) {
+    		Robot.lift.setBottom(Robot.lift.getBottom() - 1728.0);
+    	}
+    	Robot.lift.log();
     }
 
     // Make this return true when this Command no longer needs to run execute()

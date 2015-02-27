@@ -2,18 +2,17 @@ package org.usfirst.frc.team4669.robot.commands;
 
 import org.usfirst.frc.team4669.robot.Robot;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class StateChange extends Command {
+public class FaceFlat extends Command {
 
-    public StateChange() {
+    public FaceFlat() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lift);
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -22,23 +21,22 @@ public class StateChange extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.oi.buttonR3Pressed()) {
-   // 		Robot.lift.stateChangeUp();
-    		Timer.delay(1.0);
+    	if (Robot.sensors.getUSensor1() > Robot.sensors.getUSensor2()) {
+    		Robot.drive.joystickDrive(-0.2, 0);
     	}
-    	if (Robot.oi.buttonR2Pressed()) {
-    //		Robot.lift.stateChangeDown();
-    		Timer.delay(1.0);
+    	if (Robot.sensors.getUSensor1() < Robot.sensors.getUSensor2()) {
+    		Robot.drive.joystickDrive(0, -0.2);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (Robot.sensors.getUSensor1() == Robot.sensors.getUSensor2());
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.drive.stop();
     }
 
     // Called when another command which requires one or more of the same

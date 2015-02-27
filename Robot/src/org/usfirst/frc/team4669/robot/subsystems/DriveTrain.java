@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -17,10 +18,12 @@ public class DriveTrain extends Subsystem {
      * Creates all the motors for the chassi
      */
     public DriveTrain() {
-    	leftMotor = new CANTalon(3);
+    	leftMotor = new CANTalon(1);
     	rightMotor = new CANTalon(4);
     	leftMotor.enableControl();
     	rightMotor.enableControl();
+    	leftMotor.enableBrakeMode(true);
+    	rightMotor.enableBrakeMode(true);
     	leftMotor.setPID(1.0, 0.0, 0.0);
     	rightMotor.setPID(1.0, 0.0, 0.0);
     	leftMotor.changeControlMode(CANTalon.ControlMode.PercentVbus);
@@ -35,7 +38,7 @@ public class DriveTrain extends Subsystem {
      * @param right Ranges from -1.0 to 1.0
      */
 	public void joystickDrive(double left, double right) {
-		drivetrain.tankDrive(left, right, true);
+		drivetrain.tankDrive(-left, -right, true);
 	}
 	
 	/**
@@ -89,6 +92,26 @@ public class DriveTrain extends Subsystem {
 		leftMotor.set(leftMotor.getPosition() + num);
 		rightMotor.set(rightMotor.getPosition() + num);
 	}
+	
+	public double getLeft () {
+    	return leftMotor.getEncPosition();
+    }
+    
+    public double getRight () {
+    	return rightMotor.getEncPosition();
+    }
+    
+    public void log () {
+    	SmartDashboard.putNumber("Left", getLeft());
+    	SmartDashboard.putNumber("Right", getRight());
+    }
+    
+    public void reset() { 
+    	leftMotor.setPosition(0);
+    	leftMotor.set(0);
+    	rightMotor.setPosition(0);
+    	rightMotor.set(0);
+    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

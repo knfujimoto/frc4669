@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4669.robot;
 
+import org.usfirst.frc.team4669.robot.commands.DriveForward;
+import org.usfirst.frc.team4669.robot.commands.FaceFlat;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -66,7 +68,8 @@ public class OI {
 				buttonR11 = new JoystickButton(rightStick, 11);
 	
 	// Assign a command to button
-		
+		buttonR1.whenPressed(new DriveForward(10.0));
+		buttonL1.whenPressed(new FaceFlat());
 		
 	}
 	
@@ -84,6 +87,14 @@ public class OI {
 	
 	public boolean buttonR2Pressed() {
 		return rightStick.getRawButton(2);
+	}
+	
+	public boolean buttonL3Pressed() {
+		return leftStick.getRawButton(3);
+	}
+	
+	public boolean buttonL2Pressed() {
+		return leftStick.getRawButton(2);
 	}
 }
 
