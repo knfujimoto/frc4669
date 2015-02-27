@@ -7,9 +7,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4669.robot.subsystems.Camera;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.Elevator;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4669.robot.subsystems.SensorSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,6 +26,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static final DriveTrain drive = new DriveTrain();
 	public static final Elevator lift = new Elevator();
+	public static final Camera camera = new Camera();
+	public static final SensorSubsystem  sensors = new SensorSubsystem();
 
     Command autonomousCommand;
 
@@ -33,6 +37,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		LiveWindow.setEnabled(true);
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
     }
@@ -51,6 +56,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        log();
     }
 
     public void teleopInit() {
@@ -74,6 +80,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        log();
     }
     
     /**
@@ -81,5 +88,10 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    public void log() {
+    	drive.log();
+    	sensors.log();
     }
 }

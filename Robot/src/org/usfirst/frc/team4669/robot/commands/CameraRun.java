@@ -2,34 +2,27 @@ package org.usfirst.frc.team4669.robot.commands;
 
 import org.usfirst.frc.team4669.robot.Robot;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class StateChange extends Command {
+public class CameraRun extends Command {
 
-    public StateChange() {
+    public CameraRun() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lift);
+    	requires(Robot.camera);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.camera.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.oi.buttonR3Pressed()) {
-   // 		Robot.lift.stateChangeUp();
-    		Timer.delay(1.0);
-    	}
-    	if (Robot.oi.buttonR2Pressed()) {
-    //		Robot.lift.stateChangeDown();
-    		Timer.delay(1.0);
-    	}
+    	Robot.camera.run();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -39,6 +32,7 @@ public class StateChange extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.camera.stop();
     }
 
     // Called when another command which requires one or more of the same
