@@ -73,11 +73,11 @@ public class Robot extends SampleRobot {
             height = SmartDashboard.getNumber("Height", height);
             
             motor.setPID(kp, ki, kd);
-            	for (int i = (int) motor.get(); i < height-100; i+=10) {
+            	for (int i = (int) motor.get(); i < height-100; i+=8) {
             		motor.set(i);
             	}
             
-            	for (int i = (int) motor.get(); i > height+100; i-=10) {
+            	for (int i = (int) motor.get(); i > height+100; i-=8) {
             		motor.set(i);
             	}
             
