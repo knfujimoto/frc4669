@@ -34,6 +34,12 @@ public class MoveElevator extends Command {
     	if (Robot.oi.buttonL2Pressed()) {
     		Robot.lift.setBottom(Robot.lift.getBottom() - 1728.0);
     	}
+    	if (Robot.lift.getRevLimitSwitch()) {
+    		Robot.lift.setTop(Robot.lift.getTop()-100);
+    	}
+    	if (Robot.lift.getBottomRevLimitSwitch()) {
+    		Robot.lift.setBottom(0);
+    	}
     	Robot.lift.log();
     }
 

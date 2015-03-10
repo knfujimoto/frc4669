@@ -3,6 +3,8 @@ package org.usfirst.frc.team4669.robot.subsystems;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -10,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class SensorSubsystem extends Subsystem {
 	Ultrasonic usSensor1;
     Ultrasonic usSensor2;
+    Ultrasonic usSensor3;
     AnalogInput aiSensor1;
     AnalogInput aiSensor2;
     // Put methods for controlling this subsystem
@@ -20,33 +23,33 @@ public class SensorSubsystem extends Subsystem {
     public SensorSubsystem() {
     	usSensor1 = new Ultrasonic(0,1);
         usSensor2 = new Ultrasonic(2,3);
+        usSensor3 = new Ultrasonic(4,5);
         aiSensor1 = new AnalogInput(0);
         aiSensor2 = new AnalogInput(1);
     }
     
     /**
-     * Used for putting data on the liveWindow
+     *
      */
     public void log() {
+    	
+    	
     	usSensor1.setEnabled(true);
-        usSensor1.startLiveWindowMode();
-        usSensor1.updateTable();
-        usSensor1.ping();
-        if (usSensor1.isRangeValid()) {
-        	usSensor1.getRangeInches();	
-        }
+    	usSensor1.setDistanceUnits(Ultrasonic.Unit.kInches);
+    	usSensor1.startLiveWindowMode();
+    	usSensor1.updateTable();
+    	getUSensor1();
+    	
+        SmartDashboard.putNumber("UltraSonic1", getUSensor1());	
         
-        usSensor2.startLiveWindowMode();
-        usSensor2.updateTable();
-        usSensor2.ping();
-        if (usSensor2.isRangeValid()) {
-        	usSensor2.getRangeInches();	
-        }
+        usSensor2.setEnabled(true);
+        //SmartDashboard.putNumber("UltraSonic2", getUSensor2());	
         
-        aiSensor1.startLiveWindowMode();
-        aiSensor1.updateTable();
-        aiSensor2.startLiveWindowMode();
-        aiSensor2.updateTable();
+        usSensor3.setEnabled(true);
+//        SmartDashboard.putNumber("UltraSonic3", getUSensor3());
+        
+       SmartDashboard.putNumber("Analog1", aiSensor1.getVoltage());
+       SmartDashboard.putNumber("Analog2", getAnalog2());
     }
     
     /**
@@ -58,7 +61,15 @@ public class SensorSubsystem extends Subsystem {
     	if (usSensor1.isRangeValid()) {
     		return usSensor1.getRangeInches();
     	}
-    	else return -1;
+    	else {
+    		try {
+				throw new Exception();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		return -1;
+    	}
     }
     
     /**
@@ -71,6 +82,14 @@ public class SensorSubsystem extends Subsystem {
     		return usSensor2.getRangeInches();
     	}
     	else return -1;
+    }
+    
+    public double getUSensor3() {
+    	usSensor3.ping();
+    	if (usSensor3.isRangeValid()) {
+    		return usSensor3.getRangeInches();
+    	}
+    	else return 5;
     }
     
     /**

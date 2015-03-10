@@ -31,7 +31,7 @@ public class FaceFlat extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Robot.sensors.getUSensor1() == Robot.sensors.getUSensor2());
+        return (Math.abs(Robot.sensors.getUSensor1() - Robot.sensors.getUSensor2()) < 0.1);
     }
 
     // Called once after isFinished returns true

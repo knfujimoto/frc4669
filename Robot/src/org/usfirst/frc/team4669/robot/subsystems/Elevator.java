@@ -58,6 +58,10 @@ public class Elevator extends Subsystem {
     	return frontChain.isRevLimitSwitchClosed();
     }
     
+    public boolean getBottomRevLimitSwitch() {
+    	return rearChain.isRevLimitSwitchClosed();
+    }
+    
     public double getTop () {
     	return frontChain.getPosition();
     }
