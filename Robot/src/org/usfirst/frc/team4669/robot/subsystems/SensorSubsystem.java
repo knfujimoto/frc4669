@@ -35,7 +35,7 @@ public class SensorSubsystem extends Subsystem {
     	
     	
     	usSensor1.setEnabled(true);
-    	usSensor1.setDistanceUnits(Ultrasonic.Unit.kInches);
+//    	usSensor1.setDistanceUnits(Ultrasonic.Unit.kInches);
     	usSensor1.startLiveWindowMode();
     	usSensor1.updateTable();
     	getUSensor1();
@@ -43,10 +43,10 @@ public class SensorSubsystem extends Subsystem {
         SmartDashboard.putNumber("UltraSonic1", getUSensor1());	
         
         usSensor2.setEnabled(true);
-        //SmartDashboard.putNumber("UltraSonic2", getUSensor2());	
+        SmartDashboard.putNumber("UltraSonic2", getUSensor2());	
         
         usSensor3.setEnabled(true);
-//        SmartDashboard.putNumber("UltraSonic3", getUSensor3());
+        SmartDashboard.putNumber("UltraSonic3", getUSensor3());
         
        SmartDashboard.putNumber("Analog1", aiSensor1.getVoltage());
        SmartDashboard.putNumber("Analog2", getAnalog2());
@@ -62,12 +62,6 @@ public class SensorSubsystem extends Subsystem {
     		return usSensor1.getRangeInches();
     	}
     	else {
-    		try {
-				throw new Exception();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
     		return -1;
     	}
     }
@@ -89,7 +83,7 @@ public class SensorSubsystem extends Subsystem {
     	if (usSensor3.isRangeValid()) {
     		return usSensor3.getRangeInches();
     	}
-    	else return 5;
+    	else return -1;
     }
     
     /**

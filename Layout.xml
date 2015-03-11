@@ -1,0 +1,195 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="UltraSonic1" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="747" y="45"/>
+	</widget>
+	<widget field="UltraSonic2" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="747" y="24"/>
+	</widget>
+	<widget field="UltraSonic3" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="498" y="64"/>
+	</widget>
+	<widget field="Left" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="372" y="0"/>
+	</widget>
+	<widget field="Bottom" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="626" y="25"/>
+	</widget>
+	<widget field="Analog1" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="372" y="739"/>
+	</widget>
+	<widget field="Analog2" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="372" y="62"/>
+	</widget>
+	<widget field="Top" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="252" y="739"/>
+	</widget>
+	<widget field="Right" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="123" y="739"/>
+	</widget>
+	<widget field="lefttSet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="739"/>
+	</widget>
+	<widget field="rightDiff" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="500" y="43"/>
+	</widget>
+	<widget field="leftDiff" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="366" y="41"/>
+	</widget>
+	<widget field="Turn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="253" y="38"/>
+	</widget>
+	<widget field="izone1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="309" y="87"/>
+	</widget>
+	<widget field="ramp1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="530" y="88"/>
+	</widget>
+	<widget field="p1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="6" y="84"/>
+	</widget>
+	<widget field="d1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="205" y="93"/>
+	</widget>
+	<widget field="i1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="106" y="87"/>
+	</widget>
+	<widget field="f1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="430" y="88"/>
+	</widget>
+	<widget field="leftSet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="2" y="558"/>
+		<width>513</width>
+		<height>180</height>
+	</widget>
+	<widget field="rightSet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="518" y="557"/>
+		<width>472</width>
+		<height>185</height>
+	</widget>
+	<widget field="minV" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="594" y="4"/>
+	</widget>
+	<widget field="maxV" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="710" y="3"/>
+	</widget>
+	<widget field="acc" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="828" y="3"/>
+		<width>79</width>
+	</widget>
+	<widget field="Move" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="83" y="36"/>
+	</widget>
+	<widget field="f" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="430" y="115"/>
+		<height>21</height>
+	</widget>
+	<widget field="ramp" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="527" y="117"/>
+	</widget>
+	<widget field="i" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="111" y="113"/>
+	</widget>
+	<widget field="p" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="10" y="111"/>
+	</widget>
+	<widget field="angle" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="189" y="40"/>
+		<width>59</width>
+	</widget>
+	<widget field="distance" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="3" y="41"/>
+		<width>76</width>
+	</widget>
+	<widget field="izone" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="311" y="114"/>
+	</widget>
+	<widget field="d" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="209" y="114"/>
+	</widget>
+	<widget field="leftErr" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="255" y="6"/>
+	</widget>
+	<widget field="rightErr" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="129" y="5"/>
+	</widget>
+	<widget field="rightThrot" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="519" y="138"/>
+		<width>480</width>
+		<height>186</height>
+	</widget>
+	<widget field="leftThrot" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="6" y="138"/>
+		<width>506</width>
+		<height>186</height>
+	</widget>
+	<widget field="leftPos" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="5" y="328"/>
+		<width>510</width>
+		<height>229</height>
+	</widget>
+	<widget field="end" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="483" y="4"/>
+	</widget>
+	<widget field="rightPos" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="524" y="329"/>
+		<width>477</width>
+		<height>219</height>
+	</widget>
+	<widget field="Scheduler" type="Scheduler" class="edu.wpi.first.smartdashboard.gui.elements.Scheduler">
+		<location x="0" y="19"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
+		<location x="1" y="0"/>
+		<width>16</width>
+		<height>18</height>
+	</static-widget>
+</dashboard>
+<live-window>
+	<widget field="Ungrouped" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="AnalogInput[1]" type="Analog Input" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="16"/>
+			<height>20</height>
+			<width>88</width>
+		</widget>
+		<widget field="DigitalInput[1]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
+			<location x="6" y="36"/>
+			<height>20</height>
+			<width>88</width>
+		</widget>
+		<widget field="Ultrasonic[3]" type="Ultrasonic" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="56"/>
+			<height>20</height>
+			<width>88</width>
+		</widget>
+		<widget field="Ultrasonic[1]" type="Ultrasonic" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="76"/>
+			<height>20</height>
+			<width>88</width>
+		</widget>
+		<widget field="Ultrasonic[5]" type="Ultrasonic" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="96"/>
+			<height>20</height>
+			<width>88</width>
+		</widget>
+		<widget field="AnalogInput[0]" type="Analog Input" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="116"/>
+			<height>20</height>
+			<width>88</width>
+		</widget>
+		<widget field="DigitalInput[5]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
+			<location x="6" y="136"/>
+			<height>20</height>
+			<width>88</width>
+		</widget>
+		<widget field="DigitalInput[3]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
+			<location x="6" y="156"/>
+			<height>20</height>
+			<width>88</width>
+		</widget>
+		<location x="0" y="0"/>
+		<width>100</width>
+		<height>183</height>
+	</widget>
+</live-window>
+</xml>
