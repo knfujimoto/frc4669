@@ -12,6 +12,7 @@ public class DriveV extends Subsystem {
 	public double minV = 5; // ticks per 1/100 sec
 	public double maxV = 19.4; // ticks per 1/100 sec
 	public double acc = 14.4;  //ticks per 1/100 sec per sec;
+	public double div = 8;
 	protected long startTime;
 	protected int endPos;
 	protected int endPos1;
@@ -28,6 +29,7 @@ public class DriveV extends Subsystem {
 	protected double accL = 0;
 	public double intervalsPerSec = 50;
 	protected double intervalsL = 0;
+	protected double divL=0;
 	protected double[] velocity = null;
 	protected int[] position = null;
 	protected int periodMs;
@@ -36,6 +38,8 @@ public class DriveV extends Subsystem {
 	protected int decDist;
 	protected int decDist1;
 	protected boolean last = false;
+	protected int clearCount = 0;
+	
 	public DriveV(int id, boolean brakeMode, int id1, boolean brakeMode1) {
 		super();
 		drive = new CANTalon(id);
@@ -50,7 +54,8 @@ public class DriveV extends Subsystem {
 	}
 
 	protected void calcProfile() {
-		if (minV != minVL || maxV != maxVL || acc != accL || intervalsPerSec != intervalsL) {
+		if (minV != minVL || maxV != maxVL || acc != accL || intervalsPerSec != intervalsL
+				|| div != divL) {
 			int periods = (int) Math.round((maxV - minV) / acc * intervalsPerSec);
 			periodMs = (int) Math.round(1 / intervalsPerSec * 1000.0);
 			velocity = new double[periods];
@@ -64,12 +69,13 @@ public class DriveV extends Subsystem {
 				v += dv;
 				t += periodMs;
 				p = acc * t * t  / 20000 + minV * t / 10;
-				position[x] = (int) Math.round(p);
+				position[x] = (int) Math.round(p /div);
 			}
 			minVL = minV;
 			maxVL = maxV;
 			accL = acc;
 			intervalsL = intervalsPerSec;
+			divL=div;
 		}
 	}
 	
@@ -78,6 +84,13 @@ public class DriveV extends Subsystem {
 			if (drive.getEncPosition() == 0 && drive1.getEncPosition() == 0) {
 				state = 2;
 				startTime = time;
+			} else {
+				++clearCount;
+				if (clearCount >10) {
+					drive.setPosition(0);
+					drive1.setPosition(0);
+					clearCount = 0;
+				}
 			}
 		}
 		if (state == 2) { // accelerate
@@ -113,7 +126,7 @@ public class DriveV extends Subsystem {
 							SmartDashboard.putNumber("rightSet", v);
 						}
 					} else {
-						if (p > endPos) {
+						if (p >= endPos) {
 							drive.set(0);
 							SmartDashboard.putNumber("rightSet", 0);
 						} else {
@@ -134,7 +147,7 @@ public class DriveV extends Subsystem {
 							SmartDashboard.putNumber("rightSet", v);
 						}
 					} else {
-						if (p < endPos) {
+						if (p <= endPos) {
 							drive.set(0);
 							SmartDashboard.putNumber("rightSet", 0);
 						} else {
@@ -159,7 +172,7 @@ public class DriveV extends Subsystem {
 						}
 						last = ! last;
 					} else {
-						if (p1 > endPos1) {
+						if (p1 >= endPos1) {
 							drive1.set(0);
 							SmartDashboard.putNumber("leftSet", 0);
 						} else {
@@ -181,7 +194,7 @@ public class DriveV extends Subsystem {
 						}
 						last = ! last;
 					} else {
-						if (p1 < endPos1) {
+						if (p1 <= endPos1) {
 							drive1.set(0);
 							SmartDashboard.putNumber("leftSet", 0);
 						} else {
@@ -205,17 +218,25 @@ public class DriveV extends Subsystem {
 			drive.setProfile(1);
 		}
 		drive.setPosition(0);
+		drive.ClearIaccum();
 		if (pidP1 != null) {
 			drive1.setPID(pidP1.P, pidP1.I, pidP1.D, pidP1.F, pidP1.IZone, pidP1.Ramp, 1);
 			drive1.setProfile(1);
 		}
 		drive1.setPosition(0);
+		drive1.ClearIaccum();
+		clearCount = 0;
+		if (ticks == 0.0) {
+			endPos =0;
+			endPos1 =0;
+			return;
+		}
 		state =1;
-		endPos = (int) Math.round(ticks);
+		endPos1 = (int) Math.round(ticks);
 		if (isTurn) {
-			endPos1 = endPos;
+			endPos = endPos1;
 		} else {
-			endPos1 = -endPos;
+			endPos = -endPos1;
 		}
 		isPos = endPos > 0;
 		isPos1 = endPos1 > 0;
@@ -235,16 +256,21 @@ public class DriveV extends Subsystem {
 			--x;
 		}
 		accTime = x * periodMs;
-		int ad = position[x];
-		if (isPos) {
-			decDist = endPos - ad;
+		if (x == 0) {
+			decDist = 0;
+			decDist1 = 0;
 		} else {
-			decDist = endPos + ad;
-		}
-		if (isPos1) {
-			decDist1 = endPos1 - ad;
-		} else {
-			decDist1 = endPos1 + ad;
+			int ad = position[x];
+			if (isPos) {
+				decDist = endPos - ad;
+			} else {
+				decDist = endPos + ad;
+			}
+			if (isPos1) {
+				decDist1 = endPos1 - ad;
+			} else {
+				decDist1 = endPos1 + ad;
+			}
 		}
 	}
 	
@@ -253,20 +279,20 @@ public class DriveV extends Subsystem {
 			return false;
 		}
 		if (isPos) {
-			if (drive.getEncPosition() < endPos) {
+			if (drive.getEncPosition() <= endPos) {
 				return false;
 			}
 		} else {
-			if (drive.getEncPosition() > endPos) {
+			if (drive.getEncPosition() >= endPos) {
 				return false;
 			}
 		}
 		if (isPos1) {
-			if (drive1.getEncPosition() < endPos1) {
+			if (drive1.getEncPosition() <= endPos1) {
 				return false;
 			}
 		} else {
-			if (drive1.getEncPosition() > endPos1) {
+			if (drive1.getEncPosition() >= endPos1) {
 				return false;
 			}
 		}

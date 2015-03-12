@@ -13,7 +13,7 @@ public class DriveTrain extends DriveV {
 	public static double WHEELBASE= 22;
 
 	public DriveTrain() {
-		super(4, false, 1, false);
+		super(4, false, 1, false); // 4
 	}
 
 	public void execute() {

@@ -4,6 +4,7 @@ package org.usfirst.frc.team4669.robot;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -30,7 +31,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
 		SmartDashboard.putData(Scheduler.getInstance());
-		SmartDashboard.putString("distance", "12");
+		SmartDashboard.putString("distance", "6");
 		SmartDashboard.putString("angle", "90");
 		SmartDashboard.putString("p", ".8");
 		SmartDashboard.putString("i", ".003");
@@ -44,9 +45,14 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putString("izone1", "300");
 		SmartDashboard.putString("f1", "1.0");
 		SmartDashboard.putString("ramp1", "48");
-		SmartDashboard.putString("maxV", "400");
+		SmartDashboard.putString("maxV", "800");
 		SmartDashboard.putString("minV", "50");
-		SmartDashboard.putString("acc", "450");
+		SmartDashboard.putString("acc", "600");
+		SmartDashboard.putString("div", "8");
+		SmartDashboard.putNumber("Jx", OI.stick.getAxis(AxisType.kX));
+		SmartDashboard.putNumber("Jy", OI.stick.getAxis(AxisType.kY));
+		SmartDashboard.putNumber("Jth", OI.stick.getAxis(AxisType.kThrottle));
+		SmartDashboard.putNumber("Jtw", OI.stick.getAxis(AxisType.kTwist));
     }
 	
 	public void disabledPeriodic() {
