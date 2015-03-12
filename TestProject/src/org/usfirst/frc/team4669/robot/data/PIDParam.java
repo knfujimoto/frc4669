@@ -8,12 +8,9 @@ public class PIDParam {
 	public double F;
 	public double Ramp;
 	
-	public static PIDParam DRIVE_LEFT = new PIDParam(1, .003, 3, 300, 0, 48);
-	public static PIDParam DRIVE_RIGHT = new PIDParam(1, .003, 3, 300, 0, 48);
+	public static PIDParam DRIVE_LEFT =  new PIDParam(.8, .003, 1.5, 300, 1.0, 48);
+	public static PIDParam DRIVE_RIGHT =  new PIDParam(.8, .003, 1.5, 300, 1.0, 48);
 
-	//public static PIDParam DRIVE_LEFT = new PIDParam(1, .0, 0, 0, 0, 48);
-	//public static PIDParam DRIVE_RIGHT = new PIDParam(1, .0, 0, 0, 0, 48);
-	
 	public PIDParam(double p, double i, double d, int iZone, double f,
 			double ramp) {
 		super();
