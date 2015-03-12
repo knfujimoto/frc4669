@@ -1,0 +1,153 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Jtw" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="542" y="27"/>
+	</widget>
+	<widget field="Jth" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="466" y="70"/>
+	</widget>
+	<widget field="Jx" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="481" y="49"/>
+	</widget>
+	<widget field="Jy" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="368" y="71"/>
+	</widget>
+	<widget field="div" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="365" y="50"/>
+	</widget>
+	<widget field="rightThrot" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="11" y="351"/>
+		<width>522</width>
+		<height>208</height>
+	</widget>
+	<widget field="rightPos" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="6" y="561"/>
+		<width>527</width>
+		<height>203</height>
+	</widget>
+	<widget field="leftThrot" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="536" y="357"/>
+		<width>483</width>
+		<height>200</height>
+	</widget>
+	<widget field="leftPos" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="536" y="560"/>
+		<width>491</width>
+		<height>207</height>
+	</widget>
+	<widget field="leftSet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="544" y="108"/>
+		<width>476</width>
+		<height>245</height>
+	</widget>
+	<widget field="rightSet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="10" y="110"/>
+		<width>528</width>
+		<height>240</height>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
+		<location x="5" y="3"/>
+		<width>14</width>
+		<height>16</height>
+	</static-widget>
+	<widget field="d1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="122" y="83"/>
+		<width>49</width>
+	</widget>
+	<widget field="ramp1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="308" y="83"/>
+		<width>59</width>
+	</widget>
+	<widget field="Scheduler" type="Scheduler" class="edu.wpi.first.smartdashboard.gui.elements.Scheduler">
+		<location x="29" y="3"/>
+	</widget>
+	<widget field="rightDiff" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="143" y="3"/>
+		<width>111</width>
+	</widget>
+	<widget field="Turn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="248" y="23"/>
+	</widget>
+	<widget field="distance" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="6" y="27"/>
+		<width>74</width>
+	</widget>
+	<widget field="acc" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="491" y="28"/>
+		<width>50</width>
+	</widget>
+	<widget field="end" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="363" y="5"/>
+		<width>85</width>
+	</widget>
+	<widget field="izone1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="177" y="84"/>
+		<width>71</width>
+	</widget>
+	<widget field="izone" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="175" y="57"/>
+		<width>64</width>
+	</widget>
+	<widget field="d" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="121" y="55"/>
+		<width>45</width>
+	</widget>
+	<widget field="ramp" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="304" y="57"/>
+		<width>60</width>
+	</widget>
+	<widget field="f" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="251" y="58"/>
+		<width>43</width>
+	</widget>
+	<widget field="minV" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="355" y="29"/>
+		<width>55</width>
+	</widget>
+	<widget field="i1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="61" y="82"/>
+		<width>51</width>
+	</widget>
+	<widget field="Move" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="81" y="21"/>
+	</widget>
+	<widget field="i" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="60" y="56"/>
+		<width>49</width>
+	</widget>
+	<widget field="f1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="255" y="84"/>
+		<width>45</width>
+	</widget>
+	<widget field="angle" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="187" y="28"/>
+		<width>57</width>
+	</widget>
+	<widget field="p" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="6" y="55"/>
+		<width>46</width>
+	</widget>
+	<widget field="rightErr" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="454" y="5"/>
+		<width>83</width>
+	</widget>
+	<widget field="leftDiff" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="257" y="3"/>
+		<width>99</width>
+	</widget>
+	<widget field="p1" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="6" y="82"/>
+		<width>49</width>
+	</widget>
+	<widget field="leftErr" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="545" y="6"/>
+		<width>83</width>
+	</widget>
+	<widget field="maxV" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="418" y="29"/>
+		<width>62</width>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
