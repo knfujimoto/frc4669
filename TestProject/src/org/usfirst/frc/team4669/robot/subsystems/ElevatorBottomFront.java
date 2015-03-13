@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class ElevatorBottomFront extends Elevator{
 
 	public ElevatorBottomFront() {
-		super(4, false); // 4
+		super(3, false);
 	}
 
 	public void execute() {

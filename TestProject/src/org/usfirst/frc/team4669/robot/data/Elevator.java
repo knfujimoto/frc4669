@@ -88,27 +88,27 @@ public class Elevator extends Subsystem {
 				if (isPos) {
 					v = velocity[x];
 					elevator.set(v);
-					SmartDashboard.putNumber("rightSet", v);
+//					SmartDashboard.putNumber("rightSet", v);
 				} else {
 					v = -velocity[x];
 					elevator.set(v);
-					SmartDashboard.putNumber("rightSet", v);
+//					SmartDashboard.putNumber("rightSet", v);
 				}
 
 			} else {
 				int p = elevator.getEncPosition();
-				SmartDashboard.putNumber("rightDiff", endPos-p);
+//				SmartDashboard.putNumber("rightDiff", endPos-p);
 				if (isPos) {
 					if (p < decDist ) {
 						if (last) {
-							SmartDashboard.putNumber("rightSet", v*1.001);
+//							SmartDashboard.putNumber("rightSet", v*1.001);
 						} else {
-							SmartDashboard.putNumber("rightSet", v);
+//							SmartDashboard.putNumber("rightSet", v);
 						}
 					} else {
 						if (p >= endPos) {
 							elevator.set(0);
-							SmartDashboard.putNumber("rightSet", 0);
+//							SmartDashboard.putNumber("rightSet", 0);
 						} else {
 							int pd = endPos - p;
 							while (position[idx] > pd && idx > 0) {
@@ -116,20 +116,20 @@ public class Elevator extends Subsystem {
 							}
 							v = velocity[idx];
 							elevator.set(v);
-							SmartDashboard.putNumber("rightSet", v);
+//							SmartDashboard.putNumber("rightSet", v);
 						}
 					}
 				} else {
 					if (p > decDist ) {
 						if (last) {
-							SmartDashboard.putNumber("rightSet", v*1.001);
+//							SmartDashboard.putNumber("rightSet", v*1.001);
 						} else {
-							SmartDashboard.putNumber("rightSet", v);
+//							SmartDashboard.putNumber("rightSet", v);
 						}
 					} else {
 						if (p <= endPos) {
 							elevator.set(0);
-							SmartDashboard.putNumber("rightSet", 0);
+//							SmartDashboard.putNumber("rightSet", 0);
 						} else {
 							int pd = p - endPos;
 							while (position[idx] > pd && idx > 0) {
@@ -137,7 +137,7 @@ public class Elevator extends Subsystem {
 							}
 							v = -velocity[idx];
 							elevator.set(v);
-							SmartDashboard.putNumber("rightSet", v);
+//							SmartDashboard.putNumber("rightSet", v);
 						}
 					}
 				}

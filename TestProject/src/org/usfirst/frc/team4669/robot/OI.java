@@ -23,7 +23,7 @@ public class OI {
 	public static JoystickButton s4 = new JoystickButton(stick, 4);
 	public static JoystickButton s5 = new JoystickButton(stick, 5);
 	public static JoystickButton s6 = new JoystickButton(stick, 6);
-	public static JoystickButton s7 = new JoystickButton(stick, 7);
+	public static JoystickButton s2 = new JoystickButton(stick, 2);
 	protected  Command cTrig = new Trigger();
 	protected Command cTL45= new Turn(-45);
 	protected Command cTR45= new Turn(45);
@@ -41,7 +41,7 @@ public class OI {
 		s4.whenReleased(cTR45);
 		s5.whenReleased(cTL90);
 		s6.whenReleased(cTR90);
-		s7.whenReleased(liftBottomFront);
+		s2.whenReleased(liftBottomFront);
 	}
 
 }
