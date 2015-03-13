@@ -2,6 +2,8 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4669.robot.subsystems.ElevatorBottomFront;
+import org.usfirst.frc.team4669.robot.subsystems.ElevatorTopBack;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick.AxisType;
@@ -20,6 +22,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static  DriveTrain driveTrain = new DriveTrain();
+	public static ElevatorBottomFront elevatorBottomFront = new ElevatorBottomFront();
+	public static ElevatorTopBack elevatorTopBack = new ElevatorTopBack();
 	public static OI oi;
 
     Command autonomousCommand;
