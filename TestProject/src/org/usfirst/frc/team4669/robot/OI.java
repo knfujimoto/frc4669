@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.DriveCheck;
+import org.usfirst.frc.team4669.robot.commands.LiftBottomFront;
 import org.usfirst.frc.team4669.robot.commands.Trigger;
 import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnCheck;
@@ -22,6 +23,7 @@ public class OI {
 	public static JoystickButton s4 = new JoystickButton(stick, 4);
 	public static JoystickButton s5 = new JoystickButton(stick, 5);
 	public static JoystickButton s6 = new JoystickButton(stick, 6);
+	public static JoystickButton s7 = new JoystickButton(stick, 7);
 	protected  Command cTrig = new Trigger();
 	protected Command cTL45= new Turn(-45);
 	protected Command cTR45= new Turn(45);
@@ -29,6 +31,7 @@ public class OI {
 	protected Command cTR90= new Turn(90);
 	protected Command turn = new TurnCheck(); 
 	protected Command forward = new DriveCheck();
+	protected Command liftBottomFront = new LiftBottomFront();
 	
 	public OI() {
 		SmartDashboard.putData("Move", forward);
@@ -38,6 +41,7 @@ public class OI {
 		s4.whenReleased(cTR45);
 		s5.whenReleased(cTL90);
 		s6.whenReleased(cTR90);
+		s7.whenReleased(liftBottomFront);
 	}
 
 }
