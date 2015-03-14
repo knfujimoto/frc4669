@@ -1,6 +1,8 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.DriveCheck;
+import org.usfirst.frc.team4669.robot.commands.LiftCheck;
+import org.usfirst.frc.team4669.robot.commands.SetYaw;
 import org.usfirst.frc.team4669.robot.commands.Trigger;
 import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnCheck;
@@ -29,10 +31,14 @@ public class OI {
 	protected Command cTR90= new Turn(90);
 	protected Command turn = new TurnCheck(); 
 	protected Command forward = new DriveCheck();
+	protected Command zero = new SetYaw();
+	protected Command lift = new LiftCheck(); 
 	
 	public OI() {
 		SmartDashboard.putData("Move", forward);
+		SmartDashboard.putData("Lift", lift);
 		SmartDashboard.putData("Turn", turn);
+		SmartDashboard.putData("ZeroYaw", zero);
 		s1.whenReleased(cTrig);
 		s3.whenReleased(cTL45);
 		s4.whenReleased(cTR45);
