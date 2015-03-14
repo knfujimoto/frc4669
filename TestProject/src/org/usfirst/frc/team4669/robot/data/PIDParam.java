@@ -10,6 +10,7 @@ public class PIDParam {
 	
 	public static PIDParam DRIVE_LEFT =  new PIDParam(.8, .003, 1.5, 300, 1.0, 48);
 	public static PIDParam DRIVE_RIGHT =  new PIDParam(.8, .003, 1.5, 300, 1.0, 48);
+	public static PIDParam LIFT =  new PIDParam(.2, .0008, .00001, 1000, 0, 48);
 
 	public PIDParam(double p, double i, double d, int iZone, double f,
 			double ramp) {
