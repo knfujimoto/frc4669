@@ -5,15 +5,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
-<<<<<<< HEAD
-import org.usfirst.frc.team4669.robot.subsystems.ElevatorBottomFront;
-import org.usfirst.frc.team4669.robot.subsystems.ElevatorTopBack;
-=======
 import org.usfirst.frc.team4669.robot.subsystems.I2CSensors;
 import org.usfirst.frc.team4669.robot.subsystems.TestLift;
+import org.usfirst.frc.team4669.robot.subsystems.TestLift1;
 
 import com.kauailabs.navx_mxp.AHRS;
->>>>>>> a05075499f31a565ee8e1202916579876edeca52
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SerialPort;
@@ -32,13 +28,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static  DriveTrain driveTrain = new DriveTrain();
-<<<<<<< HEAD
-	public static ElevatorBottomFront elevatorBottomFront = new ElevatorBottomFront();
-	public static ElevatorTopBack elevatorTopBack = new ElevatorTopBack();
-=======
 	public static TestLift lift = new TestLift();
+	public static TestLift1 lift1 = new TestLift1();
 	public static  I2CSensors sensors = new I2CSensors();
->>>>>>> a05075499f31a565ee8e1202916579876edeca52
 	public static OI oi;
 
     Command autonomousCommand;
@@ -90,6 +82,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		SmartDashboard.putData(Scheduler.getInstance());
 		SmartDashboard.putString("distance", "6");
+		SmartDashboard.putString("distance1", "6");
 		SmartDashboard.putString("angle", "90");
 		SmartDashboard.putString("p", ".8");
 		SmartDashboard.putString("i", ".003");

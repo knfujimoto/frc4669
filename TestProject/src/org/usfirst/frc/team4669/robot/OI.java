@@ -1,12 +1,9 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.DriveCheck;
-<<<<<<< HEAD
-import org.usfirst.frc.team4669.robot.commands.LiftBottomFront;
-=======
 import org.usfirst.frc.team4669.robot.commands.LiftCheck;
+import org.usfirst.frc.team4669.robot.commands.LiftCheck1;
 import org.usfirst.frc.team4669.robot.commands.SetYaw;
->>>>>>> a05075499f31a565ee8e1202916579876edeca52
 import org.usfirst.frc.team4669.robot.commands.Trigger;
 import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnCheck;
@@ -36,16 +33,14 @@ public class OI {
 	protected Command cTR90= new Turn(90);
 	protected Command turn = new TurnCheck(); 
 	protected Command forward = new DriveCheck();
-<<<<<<< HEAD
-	protected Command liftBottomFront = new LiftBottomFront();
-=======
 	protected Command zero = new SetYaw();
 	protected Command lift = new LiftCheck(); 
->>>>>>> a05075499f31a565ee8e1202916579876edeca52
+	protected Command lift1 = new LiftCheck1();
 	
 	public OI() {
 		SmartDashboard.putData("Move", forward);
 		SmartDashboard.putData("Lift", lift);
+		SmartDashboard.putData("Lift1", lift1);
 		SmartDashboard.putData("Turn", turn);
 		SmartDashboard.putData("ZeroYaw", zero);
 		s1.whenReleased(cTrig);
@@ -53,7 +48,7 @@ public class OI {
 		s4.whenReleased(cTR45);
 		s5.whenReleased(cTL90);
 		s6.whenReleased(cTR90);
-		s2.whenReleased(liftBottomFront);
+		
 	}
 
 }

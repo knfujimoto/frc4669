@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class LiftCheck extends Command {
+public class LiftCheck1 extends Command {
 	protected PIDParam lift =  new PIDParam(1, .003, 3, 300, 0, 48);
 
-    public LiftCheck() {
-    	requires(Robot.lift);
+    public LiftCheck1() {
+    	requires(Robot.lift1);
     }
 
     // Called just before this Command runs the first time
@@ -24,32 +24,32 @@ public class LiftCheck extends Command {
     	lift.IZone =  Integer.parseInt(SmartDashboard.getString("izone2"));
     	lift.F =  Double.parseDouble(SmartDashboard.getString("f2"));
     	lift.Ramp =  Double.parseDouble(SmartDashboard.getString("ramp2"));
-    	Robot.lift.pidP = lift;
-    	Robot.lift.maxV= (Double.parseDouble(SmartDashboard.getString("maxVL")));
-    	Robot.lift.acc= (Double.parseDouble(SmartDashboard.getString("accL")));
-    	Robot.lift.acc= (Double.parseDouble(SmartDashboard.getString("decL")));
-    	double dist = Double.parseDouble(SmartDashboard.getString("distance"));
-      	Robot.lift.moveTo(dist);
+    	Robot.lift1.pidP = lift;
+    	Robot.lift1.maxV= (Double.parseDouble(SmartDashboard.getString("maxVL")));
+    	Robot.lift1.acc= (Double.parseDouble(SmartDashboard.getString("accL")));
+    	Robot.lift1.acc= (Double.parseDouble(SmartDashboard.getString("decL")));
+    	double dist = Double.parseDouble(SmartDashboard.getString("distance1 "));
+      	Robot.lift1.moveTo(dist);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.execute();
+    	Robot.lift1.execute();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.lift.isFinished();
+        return Robot.lift1.isFinished();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-     	Robot.lift.stop();
+     	Robot.lift1.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.lift.stop();
+    	Robot.lift1.stop();
     }
 }
