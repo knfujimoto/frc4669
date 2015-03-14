@@ -97,13 +97,13 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putString("acc", "600");
 		SmartDashboard.putString("minV", "50");
 		SmartDashboard.putString("div", "8");
-		SmartDashboard.putString("maxVL", "10");
-		SmartDashboard.putString("accL", "10");
-		SmartDashboard.putString("decL", "10");
-		SmartDashboard.putString("p2", ".8");
-		SmartDashboard.putString("i2", ".003");
-		SmartDashboard.putString("d2", "1.5");
-		SmartDashboard.putString("izone2", "300");
+		SmartDashboard.putString("maxVL", "30");
+		SmartDashboard.putString("accL", "20");
+		SmartDashboard.putString("decL", "20");
+		SmartDashboard.putString("p2", ".2");
+		SmartDashboard.putString("i2", ".0008");
+		SmartDashboard.putString("d2", ".00001");
+		SmartDashboard.putString("izone2", "1000");
 		SmartDashboard.putString("f2", "0");
 		SmartDashboard.putString("ramp2", "48");
     }
