@@ -13,7 +13,7 @@ public class Elevator extends Subsystem {
 	public double div = 8;
 	protected long startTime;
 	protected int endPos;
-	protected int idx;
+	protected int index;
 	protected double v;
 	protected boolean isPos;
 	protected int state;
@@ -28,8 +28,8 @@ public class Elevator extends Subsystem {
 	protected int[] position = null;
 	protected int periodMs;
 	protected int accTime;
-	protected int accDist;
-	protected int decDist;
+	protected int accelDist;
+	protected int decelDist;
 	protected boolean last = false;
 	protected int clearCount = 0;
 	
@@ -99,7 +99,7 @@ public class Elevator extends Subsystem {
 				int p = elevator.getEncPosition();
 //				SmartDashboard.putNumber("rightDiff", endPos-p);
 				if (isPos) {
-					if (p < decDist ) {
+					if (p < decelDist ) {
 						if (last) {
 //							SmartDashboard.putNumber("rightSet", v*1.001);
 						} else {
@@ -111,16 +111,16 @@ public class Elevator extends Subsystem {
 //							SmartDashboard.putNumber("rightSet", 0);
 						} else {
 							int pd = endPos - p;
-							while (position[idx] > pd && idx > 0) {
-								--idx;
+							while (position[index] > pd && index > 0) {
+								--index;
 							}
-							v = velocity[idx];
+							v = velocity[index];
 							elevator.set(v);
 //							SmartDashboard.putNumber("rightSet", v);
 						}
 					}
 				} else {
-					if (p > decDist ) {
+					if (p > decelDist ) {
 						if (last) {
 //							SmartDashboard.putNumber("rightSet", v*1.001);
 						} else {
@@ -132,10 +132,10 @@ public class Elevator extends Subsystem {
 //							SmartDashboard.putNumber("rightSet", 0);
 						} else {
 							int pd = p - endPos;
-							while (position[idx] > pd && idx > 0) {
-								--idx;
+							while (position[index] > pd && index > 0) {
+								--index;
 							}
-							v = -velocity[idx];
+							v = -velocity[index];
 							elevator.set(v);
 //							SmartDashboard.putNumber("rightSet", v);
 						}
@@ -164,7 +164,7 @@ public class Elevator extends Subsystem {
 		isPos = endPos > 0;
 
 		calcProfile();
-		idx = position.length-1;
+		index = position.length-1;
 
 		v = 0;
 
@@ -180,14 +180,14 @@ public class Elevator extends Subsystem {
 		}
 		accTime = x * periodMs;
 		if (x == 0) {
-			decDist = 0;
+			decelDist = 0;
 
 		} else {
 			int ad = position[x];
 			if (isPos) {
-				decDist = endPos - ad;
+				decelDist = endPos - ad;
 			} else {
-				decDist = endPos + ad;
+				decelDist = endPos + ad;
 			}
 
 		}
