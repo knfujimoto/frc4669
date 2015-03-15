@@ -62,6 +62,8 @@ public class OI {
 	
 	protected Command inchLeft = new InchLeft();
 	protected Command inchRight = new InchRight();
+	protected Command turnL5 = new Turn(-5);
+	protected Command turnR5 = new Turn(5);
 
 	public OI() {
 		SmartDashboard.putData("Move", forward);
@@ -81,6 +83,8 @@ public class OI {
 		
 		sB4.whenReleased(inchLeft);
 		sB5.whenReleased(inchRight);
+		sB2.whileHeld(turnL5);
+		sB3.whileHeld(turnR5);
 	}
 
 }
