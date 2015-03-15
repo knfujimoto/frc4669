@@ -1,5 +1,9 @@
 package org.usfirst.frc.team4669.robot.commands;
 
+import org.usfirst.frc.team4669.robot.Robot;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /**
  *
@@ -31,7 +35,10 @@ public class Turn extends Move {
     // Called once after isFinished returns true
     protected void end() {
     	super.end();
-    }
+     	if (Robot.imu != null) {
+     		SmartDashboard.putNumber(   "IMU_Yaw",              Robot.imu.getYaw());
+     	}
+   }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

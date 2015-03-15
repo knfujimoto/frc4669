@@ -54,6 +54,9 @@ public class DriveCheck extends Command {
     // Called once after isFinished returns true
     protected void end() {
      	Robot.driveTrain.stop();
+     	if (Robot.imu != null) {
+     		SmartDashboard.putNumber(   "IMU_Yaw",              Robot.imu.getYaw());
+     	}
     }
 
     // Called when another command which requires one or more of the same
