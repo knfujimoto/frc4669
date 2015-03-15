@@ -12,9 +12,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class DriveCheck extends Command {
 	protected PIDParam right =  new PIDParam(1, .003, 3, 300, 0, 48);
 	protected PIDParam left =  new PIDParam(1, .003, 3, 300, 0, 48);
+	protected double dist = 0;
 
     public DriveCheck() {
     	requires(Robot.driveTrain);
+    }
+    
+    public DriveCheck(double distance) {
+    	requires(Robot.driveTrain);
+    	dist = distance;
     }
 
     // Called just before this Command runs the first time
@@ -37,7 +43,7 @@ public class DriveCheck extends Command {
     	Robot.driveTrain.minV= (Double.parseDouble(SmartDashboard.getString("minV")));
     	Robot.driveTrain.acc= (Double.parseDouble(SmartDashboard.getString("acc")));
     	Robot.driveTrain.div= (Double.parseDouble(SmartDashboard.getString("div")));
-    	double dist = Double.parseDouble(SmartDashboard.getString("distance"));
+    	if (dist == 0) dist = Double.parseDouble(SmartDashboard.getString("moveDist"));
       	Robot.driveTrain.move(dist);
     }
 

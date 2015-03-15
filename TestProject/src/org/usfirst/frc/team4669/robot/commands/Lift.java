@@ -9,8 +9,13 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Lift extends Command {
+	private double dist;
     public Lift() {
     	requires(Robot.lift);
+    }
+    
+    public Lift(double distance) {
+    	dist = distance;
     }
 
     public void moveTo(double pos) {
