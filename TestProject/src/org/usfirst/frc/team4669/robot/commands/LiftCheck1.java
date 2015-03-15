@@ -27,8 +27,8 @@ public class LiftCheck1 extends Command {
     	Robot.lift1.pidP = lift;
     	Robot.lift1.maxV= (Double.parseDouble(SmartDashboard.getString("maxVL")));
     	Robot.lift1.acc= (Double.parseDouble(SmartDashboard.getString("accL")));
-    	Robot.lift1.acc= (Double.parseDouble(SmartDashboard.getString("decL")));
-    	double dist = Double.parseDouble(SmartDashboard.getString("distance1 "));
+    	Robot.lift1.dec= (Double.parseDouble(SmartDashboard.getString("decL")));
+    	double dist = Double.parseDouble(SmartDashboard.getString("distance1"));
       	Robot.lift1.moveTo(dist);
     }
 

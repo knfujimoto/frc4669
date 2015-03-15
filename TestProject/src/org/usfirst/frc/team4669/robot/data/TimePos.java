@@ -68,7 +68,6 @@ public class TimePos extends Subsystem {
 	}
 	
 	protected void doPos(double p) {
-		SmartDashboard.putNumber("rightSet", p);
 		drive.set(p);
 	}
 	

@@ -29,5 +29,10 @@ public class TestLift extends TimePos {
 		SmartDashboard.putNumber("end", d);
 	}
 	
+	protected void doPos(double p) {
+		super.doPos(p);
+		SmartDashboard.putNumber("liftSet", p);
+	}
+	
 }
 

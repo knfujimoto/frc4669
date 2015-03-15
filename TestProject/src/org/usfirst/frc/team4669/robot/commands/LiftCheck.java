@@ -27,7 +27,7 @@ public class LiftCheck extends Command {
     	Robot.lift.pidP = lift;
     	Robot.lift.maxV= (Double.parseDouble(SmartDashboard.getString("maxVL")));
     	Robot.lift.acc= (Double.parseDouble(SmartDashboard.getString("accL")));
-    	Robot.lift.acc= (Double.parseDouble(SmartDashboard.getString("decL")));
+    	Robot.lift.dec= (Double.parseDouble(SmartDashboard.getString("decL")));
     	double dist = Double.parseDouble(SmartDashboard.getString("distance"));
       	Robot.lift.moveTo(dist);
     }
