@@ -12,7 +12,7 @@ public class TestLift extends TimePos {
 	public static double ENC_COUNT = 360;
 
 	public TestLift() {
-		super(3, false); // 4
+		super(2, false); // 4
 	}
 
 	public void execute() {

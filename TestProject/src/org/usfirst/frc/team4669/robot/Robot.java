@@ -4,6 +4,7 @@ package org.usfirst.frc.team4669.robot;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.usfirst.frc.team4669.robot.commands.AutoRun;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.I2CSensors;
 import org.usfirst.frc.team4669.robot.subsystems.TestLift;
@@ -74,6 +75,7 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+        autonomousCommand = new AutoRun();
     	if (sensors.setup()) {
         	SmartDashboard.putString("sensorInit", "Ok");
     	} else {
@@ -81,7 +83,8 @@ public class Robot extends IterativeRobot {
     	}
 		oi = new OI();
 		SmartDashboard.putData(Scheduler.getInstance());
-		SmartDashboard.putString("distance", "6");
+		SmartDashboard.putString("moveDist", "100");
+		SmartDashboard.putString("distance", "0");
 		SmartDashboard.putString("distance1", "6");
 		SmartDashboard.putString("angle", "90");
 		SmartDashboard.putString("p", ".8");
@@ -103,11 +106,11 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putString("maxVL", "30");
 		SmartDashboard.putString("accL", "20");
 		SmartDashboard.putString("decL", "20");
-		SmartDashboard.putString("p2", ".2");
-		SmartDashboard.putString("i2", ".0008");
-		SmartDashboard.putString("d2", ".00001");
-		SmartDashboard.putString("izone2", "1000");
-		SmartDashboard.putString("f2", "0");
+		SmartDashboard.putString("p2", ".8");
+		SmartDashboard.putString("i2", ".003");
+		SmartDashboard.putString("d2", "1.5");
+		SmartDashboard.putString("izone2", "300");
+		SmartDashboard.putString("f2", "1.0");
 		SmartDashboard.putString("ramp2", "48");
     }
 

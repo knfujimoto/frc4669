@@ -11,9 +11,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class LiftCheck extends Command {
 	protected PIDParam lift =  new PIDParam(1, .003, 3, 300, 0, 48);
+	protected double dist = 0;
 
     public LiftCheck() {
     	requires(Robot.lift);
+    }
+    
+    public LiftCheck(double position) {
+    	requires(Robot.lift);
+    	dist = position;
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +34,7 @@ public class LiftCheck extends Command {
     	Robot.lift.maxV= (Double.parseDouble(SmartDashboard.getString("maxVL")));
     	Robot.lift.acc= (Double.parseDouble(SmartDashboard.getString("accL")));
     	Robot.lift.acc= (Double.parseDouble(SmartDashboard.getString("decL")));
-    	double dist = Double.parseDouble(SmartDashboard.getString("distance"));
+    	if (dist == 0) dist = Double.parseDouble(SmartDashboard.getString("distance"));
       	Robot.lift.moveTo(dist);
     }
 
