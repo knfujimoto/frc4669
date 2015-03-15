@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Lift extends Command {
-<<<<<<< HEAD
 	private double dist;
     public Lift() {
     	requires(Robot.lift);
@@ -18,11 +17,6 @@ public class Lift extends Command {
     public Lift(double distance) {
     	dist = distance;
     }
-=======
-    public Lift() {
-    	requires(Robot.lift);
-    }
->>>>>>> a05075499f31a565ee8e1202916579876edeca52
 
     public void moveTo(double pos) {
     	Robot.lift.moveTo(pos);

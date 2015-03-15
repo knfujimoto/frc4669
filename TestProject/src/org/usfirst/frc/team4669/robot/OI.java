@@ -1,12 +1,13 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.DriveCheck;
+
 import org.usfirst.frc.team4669.robot.commands.LiftCheck;
-<<<<<<< HEAD
+
 import org.usfirst.frc.team4669.robot.commands.LiftCheck1;
-=======
->>>>>>> a05075499f31a565ee8e1202916579876edeca52
+
 import org.usfirst.frc.team4669.robot.commands.SetYaw;
+
 import org.usfirst.frc.team4669.robot.commands.Trigger;
 import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnCheck;
@@ -38,18 +39,12 @@ public class OI {
 	protected Command forward = new DriveCheck();
 	protected Command zero = new SetYaw();
 	protected Command lift = new LiftCheck(); 
-<<<<<<< HEAD
 	protected Command lift1 = new LiftCheck1();
-=======
->>>>>>> a05075499f31a565ee8e1202916579876edeca52
-	
+
 	public OI() {
 		SmartDashboard.putData("Move", forward);
 		SmartDashboard.putData("Lift", lift);
-<<<<<<< HEAD
 		SmartDashboard.putData("Lift1", lift1);
-=======
->>>>>>> a05075499f31a565ee8e1202916579876edeca52
 		SmartDashboard.putData("Turn", turn);
 		SmartDashboard.putData("ZeroYaw", zero);
 		s1.whenReleased(cTrig);

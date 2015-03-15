@@ -25,9 +25,9 @@ public class AutoRun extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new LiftCheck(6));
+    	addSequential(new Lift(6));
     	addSequential(new Turn(180));
-    	addSequential(new DriveCheck(100));
-    	addSequential(new LiftCheck(0));
+    	addSequential(new Drive(100));
+    	addSequential(new Lift(0));
     }
 }
