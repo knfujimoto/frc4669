@@ -13,7 +13,7 @@ public class LiftCheck extends Command {
 	protected PIDParam lift =  new PIDParam(1, .003, 3, 300, 0, 48);
 
     public LiftCheck() {
-    	requires(Robot.driveTrain);
+    	requires(Robot.lift);
     }
 
     // Called just before this Command runs the first time

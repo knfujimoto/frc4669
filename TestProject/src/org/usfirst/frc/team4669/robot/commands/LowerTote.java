@@ -1,14 +1,15 @@
 package org.usfirst.frc.team4669.robot.commands;
 
+import org.usfirst.frc.team4669.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class AutoRun extends CommandGroup {
+public class LowerTote extends CommandGroup {
     
-    public  AutoRun() {
+    public  LowerTote() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -25,11 +26,6 @@ public class AutoRun extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new Lift(17));
-    	addSequential(new Turn(90));
-    	addSequential(new Drive(24));
-    	addSequential(new Turn(-90));
-    	addSequential(new Drive(60));
     	addSequential(new Lift(0));
     }
 }

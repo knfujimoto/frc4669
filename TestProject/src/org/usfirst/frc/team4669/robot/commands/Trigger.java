@@ -23,7 +23,7 @@ public class Trigger extends Move {
 		SmartDashboard.putNumber("Jy", OI.stick.getAxis(AxisType.kY));
 		SmartDashboard.putNumber("Jth", OI.stick.getAxis(AxisType.kThrottle));
 		SmartDashboard.putNumber("Jtw", tw);
-		double dist = Double.parseDouble(SmartDashboard.getString("distance"));
+		double dist = Double.parseDouble(SmartDashboard.getString("moveDist"));
 		drive(dist*-1*y);
     }
 

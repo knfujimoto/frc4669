@@ -83,9 +83,9 @@ public class Robot extends IterativeRobot {
     	}
 		oi = new OI();
 		SmartDashboard.putData(Scheduler.getInstance());
-		SmartDashboard.putString("moveDist", "100");
+		SmartDashboard.putString("moveDist", "6");
 		SmartDashboard.putString("distance", "0");
-		SmartDashboard.putString("distance1", "6");
+		SmartDashboard.putString("distance1", "0");
 		SmartDashboard.putString("angle", "90");
 		SmartDashboard.putString("p", ".8");
 		SmartDashboard.putString("i", ".003");

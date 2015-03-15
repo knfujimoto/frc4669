@@ -15,6 +15,7 @@ public class Lift extends Command {
     }
     
     public Lift(double distance) {
+    	requires(Robot.lift);
     	dist = distance;
     }
 
@@ -22,17 +23,14 @@ public class Lift extends Command {
     	Robot.lift.moveTo(pos);
     }
     
-    public void turn(double angle) {
-    	Robot.driveTrain.turn(angle);
-    }
-    
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.lift.pidP = PIDParam.DRIVE_RIGHT;
-    	Robot.lift.maxV= 10;
-    	Robot.lift.acc= 10;
-       	Robot.lift.dec= 10;
-           }
+    	Robot.lift.maxV= 100;
+    	Robot.lift.acc= 100;
+       	Robot.lift.dec= 100;
+       	moveTo(dist);
+    }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {

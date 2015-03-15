@@ -38,7 +38,7 @@ public class Drive extends Move {
     protected void end() {
     	super.end();
      	if (Robot.imu != null) {
-     		SmartDashboard.putNumber(   "IMU_Yaw",              Robot.imu.getYaw());
+     		SmartDashboard.putNumber("IMU_Yaw", Robot.imu.getYaw());
      	}
     }
 
