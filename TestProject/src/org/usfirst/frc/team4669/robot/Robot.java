@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import org.usfirst.frc.team4669.robot.commands.AutoRun;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.I2CSensors;
+import org.usfirst.frc.team4669.robot.subsystems.SensorSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.TestLift;
 import org.usfirst.frc.team4669.robot.subsystems.TestLift1;
 
@@ -32,6 +33,7 @@ public class Robot extends IterativeRobot {
 	public static TestLift lift = new TestLift();
 	public static TestLift1 lift1 = new TestLift1();
 	public static  I2CSensors sensors = new I2CSensors();
+	public static SensorSubsystem sensorSubsystem = new SensorSubsystem();
 	public static OI oi;
 
     Command autonomousCommand;

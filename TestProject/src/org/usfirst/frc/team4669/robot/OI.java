@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.DriveCheck;
+import org.usfirst.frc.team4669.robot.commands.FaceTote;
 import org.usfirst.frc.team4669.robot.commands.InchLeft;
 import org.usfirst.frc.team4669.robot.commands.InchRight;
 import org.usfirst.frc.team4669.robot.commands.LiftCheck;
@@ -64,6 +65,8 @@ public class OI {
 	protected Command inchRight = new InchRight();
 	protected Command turnL5 = new Turn(-5);
 	protected Command turnR5 = new Turn(5);
+	
+	protected Command faceTote = new FaceTote(); 
 
 	public OI() {
 		SmartDashboard.putData("Move", forward);
@@ -85,6 +88,8 @@ public class OI {
 		sB5.whenReleased(inchRight);
 		sB2.whileHeld(turnL5);
 		sB3.whileHeld(turnR5);
+		
+		sB1.whenReleased(faceTote);
 	}
 
 }
