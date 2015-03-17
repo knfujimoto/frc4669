@@ -47,13 +47,13 @@ public class OI {
 	public static JoystickButton sB10 = new JoystickButton(stickB, 10);
 	public static JoystickButton sB11 = new JoystickButton(stickB, 11);
 	
-	protected  Command cTrig = new Trigger();
-	protected Command cTL45= new Turn(-45);
-	protected Command cTR45= new Turn(45);
-	protected Command cTL90= new Turn(-90);
-	protected Command cTR90= new Turn(90);
-	protected Command turn = new TurnCheck(); 
-	protected Command forward = new DriveCheck();
+//	protected  Command cTrig = new Trigger();
+//	protected Command cTL45= new Turn(-45);
+//	protected Command cTR45= new Turn(45);
+//	protected Command cTL90= new Turn(-90);
+//	protected Command cTR90= new Turn(90);
+//	protected Command turn = new TurnCheck(); 
+//	protected Command forward = new DriveCheck();
 	protected Command zero = new SetYaw();
 	protected Command lift = new LiftCheck(); 
 	protected Command lift1 = new LiftCheck1();
@@ -65,20 +65,22 @@ public class OI {
 	protected Command inchRight = new InchRight();
 	protected Command turnL5 = new Turn(-5);
 	protected Command turnR5 = new Turn(5);
+	protected Command turnL10 = new Turn(-10);
+	protected Command turnR10 = new Turn(10);
 	
 	protected Command faceTote = new FaceTote(); 
 
 	public OI() {
-		SmartDashboard.putData("Move", forward);
+//		SmartDashboard.putData("Move", forward);
 		SmartDashboard.putData("Lift", lift);
 		SmartDashboard.putData("Lift1", lift1);
-		SmartDashboard.putData("Turn", turn);
+//		SmartDashboard.putData("Turn", turn);
 		SmartDashboard.putData("ZeroYaw", zero);
-		s1.whenReleased(cTrig);
-		s2.whenReleased(cTR45);
-		s3.whenReleased(cTL45);
-		s4.whenReleased(cTL90);
-		s5.whenReleased(cTR90);
+//		s1.whenReleased(cTrig);
+//		s2.whenReleased(cTL45);
+//		s3.whenReleased(cTR45);
+//		s4.whenReleased(cTL90);
+//		s5.whenReleased(cTR90);
 		s6.whenReleased(pickUpTote);
 		s7.whenReleased(lowerTote);
 		s10.whenReleased(lowerTote);
@@ -86,10 +88,22 @@ public class OI {
 		
 		sB4.whenReleased(inchLeft);
 		sB5.whenReleased(inchRight);
-		sB2.whileHeld(turnL5);
-		sB3.whileHeld(turnR5);
+		sB2.whenPressed(turnL5);
+		sB2.whileHeld(turnL10);
+		sB3.whenPressed(turnR5);
+		sB3.whileHeld(turnR10);
 		
 		sB1.whenReleased(faceTote);
+		
+		
+	}
+	
+	public Joystick getLeftJoystick() {
+		return stick;
+	}
+	
+	public Joystick getRightJoystick() {
+		return stickB;
 	}
 
 }

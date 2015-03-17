@@ -7,11 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class FaceTote extends Command {
+public class RunSensors extends Command {
 
-    public FaceTote() {
-        requires(Robot.driveTrain);
-        requires(Robot.sensorSubsystem);
+    public RunSensors() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.sensorSubsystem);
     }
 
     // Called just before this Command runs the first time
@@ -31,7 +32,6 @@ public class FaceTote extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	
     }
 
     // Called when another command which requires one or more of the same

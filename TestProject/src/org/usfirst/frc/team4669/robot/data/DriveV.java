@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4669.robot.data;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -51,6 +52,7 @@ public class DriveV extends Subsystem {
 		drive1.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		drive1.enableBrakeMode(brakeMode);
 		state = 0;
+
 	}
 
 	protected void calcProfile() {

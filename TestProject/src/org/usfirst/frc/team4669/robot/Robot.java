@@ -5,7 +5,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.usfirst.frc.team4669.robot.commands.AutoRun;
+import org.usfirst.frc.team4669.robot.subsystems.BackupElevator;
+import org.usfirst.frc.team4669.robot.subsystems.Camera;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4669.robot.subsystems.DriveTrain1;
 import org.usfirst.frc.team4669.robot.subsystems.I2CSensors;
 import org.usfirst.frc.team4669.robot.subsystems.SensorSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.TestLift;
@@ -30,9 +33,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static  DriveTrain driveTrain = new DriveTrain();
+	public static DriveTrain1 driveTrain1 = new DriveTrain1();
 	public static TestLift lift = new TestLift();
 	public static TestLift1 lift1 = new TestLift1();
+//	public static BacupElevator liftBackup = new BackupElevator();
 	public static  I2CSensors sensors = new I2CSensors();
+	public static Camera camera = new Camera();
 	public static SensorSubsystem sensorSubsystem = new SensorSubsystem();
 	public static OI oi;
 

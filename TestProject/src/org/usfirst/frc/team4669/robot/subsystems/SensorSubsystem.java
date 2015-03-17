@@ -1,11 +1,10 @@
 package org.usfirst.frc.team4669.robot.subsystems;
 
+import org.usfirst.frc.team4669.robot.commands.RunSensors;
+
 import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -23,9 +22,7 @@ public class SensorSubsystem extends Subsystem {
      * Creates the sensors
      */
     public SensorSubsystem() {
-    	DigitalOutput digiOut1 = new DigitalOutput(0);
-    	DigitalInput digiIn1 = new DigitalInput(1);
-    	usSensor1 = new Ultrasonic(digiOut1,digiIn1);
+    	usSensor1 = new Ultrasonic(0,1);
         usSensor2 = new Ultrasonic(2,3);
         usSensor3 = new Ultrasonic(4,5);
         aiSensor1 = new AnalogInput(0);
@@ -40,9 +37,9 @@ public class SensorSubsystem extends Subsystem {
     	
     	usSensor1.setEnabled(true);
 //    	usSensor1.setDistanceUnits(Ultrasonic.Unit.kInches);
-    	usSensor1.startLiveWindowMode();
-    	usSensor1.updateTable();
-    	getUSensor1();
+//    	usSensor1.startLiveWindowMode();
+//    	usSensor1.updateTable();
+//    	getUSensor1();
     	
         SmartDashboard.putNumber("UltraSonic1", getUSensor1());	
         
@@ -52,7 +49,7 @@ public class SensorSubsystem extends Subsystem {
         usSensor3.setEnabled(true);
         SmartDashboard.putNumber("UltraSonic3", getUSensor3());
         
-       SmartDashboard.putNumber("Analog1", aiSensor1.getVoltage());
+       SmartDashboard.putNumber("Analog1", getAnalog1());
        SmartDashboard.putNumber("Analog2", getAnalog2());
     }
     
@@ -61,16 +58,17 @@ public class SensorSubsystem extends Subsystem {
      * @return Distance in inches
      */
     public double getUSensor1() {
-    	usSensor1.setEnabled(true);
+//    	usSensor1.setEnabled(true);
 //    	usSensor1.setAutomaticMode(true);
 //    	return usSensor1.getRangeInches();
     	usSensor1.ping();
-    	if (usSensor1.isRangeValid()) {
-    		return usSensor1.getRangeInches();
-    	}
-    	else {
-    		return -1;
-    	}
+    	return usSensor1.getRangeInches();
+//    	if (usSensor1.isRangeValid()) {
+//    		return usSensor1.getRangeInches();
+//    	}
+//    	else {
+//    		return -1;
+//    	}
     }
     
     /**
@@ -112,6 +110,7 @@ public class SensorSubsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new RunSensors());
     }
 }
 

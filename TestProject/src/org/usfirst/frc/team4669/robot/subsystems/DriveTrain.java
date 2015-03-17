@@ -40,6 +40,5 @@ public class DriveTrain extends DriveV {
 		super.move(d);
 		SmartDashboard.putNumber("end", d);
 	}
-	
 }
 

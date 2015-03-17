@@ -17,8 +17,15 @@ public class Camera extends Subsystem {
     Image frame;
     int session;
     
-    Point start = new Point(15, 50);
-    Point end = new Point(50, 15);
+//    Point start1 = new Point(0, 10);
+//    Point end1 = new Point(120, 10);
+//    Point start2 = new Point(300, 320);
+//    Point end2 = new Point(380, 320);
+//    Point start3 = new Point(400, 400);
+//    Point end3 = new Point(450, 400);
+//    Point start4 = new Point(435, 425);
+//    Point end4 = new Point(470, 425);
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public Camera() {
@@ -38,7 +45,10 @@ public class Camera extends Subsystem {
 	public void run() {
 		 NIVision.IMAQdxGrab(session, frame, 1);
          
-         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, start, end, 0.0f);
+//         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, start1, end1, 255);
+//         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, start2, end2, 255);
+//         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, start3, end3, 255);
+//         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, start4, end4, 255);
          CameraServer.getInstance().setImage(frame);
 	}
 	

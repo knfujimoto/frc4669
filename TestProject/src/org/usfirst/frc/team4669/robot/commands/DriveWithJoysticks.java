@@ -7,21 +7,21 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class FaceTote extends Command {
-
-    public FaceTote() {
-        requires(Robot.driveTrain);
-        requires(Robot.sensorSubsystem);
+public class DriveWithJoysticks extends Command {
+    public DriveWithJoysticks() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.driveTrain1);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.sensorSubsystem.log();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.sensorSubsystem.log();
+    	Robot.driveTrain1.joystickDrive(Robot.oi.getLeftJoystick(), Robot.oi.getRightJoystick());
+//    	Robot.driveTrain1.stickArcadeDrive(Robot.oi.getLeftJoystick());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,11 +31,12 @@ public class FaceTote extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	
+    	Robot.driveTrain1.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
