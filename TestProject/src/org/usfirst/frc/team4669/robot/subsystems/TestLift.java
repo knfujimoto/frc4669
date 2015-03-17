@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class TestLift extends TimePos {
 	public static double WHEEL_DIA = 1.75;
 	public static double ENC_COUNT = 360;
+	
+	public static double liftHeight = 0;
 
 	public TestLift() {
 		super(2, false); // 4
@@ -25,7 +27,9 @@ public class TestLift extends TimePos {
 	
 	public void moveTo(double inches) {
 		double d = inches / WHEEL_DIA / Math.PI * 360*4;
-		super.moveTo(d);
+		liftHeight += d;
+		super.moveTo(liftHeight);
+		
 		SmartDashboard.putNumber("end", d);
 	}
 	

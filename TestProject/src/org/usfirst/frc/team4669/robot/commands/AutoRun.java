@@ -30,6 +30,6 @@ public class AutoRun extends CommandGroup {
     	addSequential(new Drive(24));
     	addSequential(new Turn(-90));
     	addSequential(new Drive(60));
-    	addSequential(new Lift(0));
+    	addSequential(new Lift(-17));
     }
 }
