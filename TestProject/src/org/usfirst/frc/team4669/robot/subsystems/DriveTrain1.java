@@ -29,7 +29,7 @@ public class DriveTrain1 extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public void joystickDrive(double left, double right) {
-		drivetrain.tankDrive(left, right, true);
+			drivetrain.tankDrive(left*0.5, right*0.5, false);
 	}
 	
 	public void stickArcadeDrive(Joystick stick) {

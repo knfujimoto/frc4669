@@ -7,8 +7,10 @@ import org.usfirst.frc.team4669.robot.commands.InchRight;
 import org.usfirst.frc.team4669.robot.commands.LiftCheck;
 import org.usfirst.frc.team4669.robot.commands.LiftCheck1;
 import org.usfirst.frc.team4669.robot.commands.LowerTote;
+import org.usfirst.frc.team4669.robot.commands.LowerTote1;
 import org.usfirst.frc.team4669.robot.commands.PickUpRecycleBin;
 import org.usfirst.frc.team4669.robot.commands.PickUpTote;
+import org.usfirst.frc.team4669.robot.commands.PickUpTote1;
 import org.usfirst.frc.team4669.robot.commands.SetYaw;
 import org.usfirst.frc.team4669.robot.commands.Trigger;
 import org.usfirst.frc.team4669.robot.commands.Turn;
@@ -58,7 +60,9 @@ public class OI {
 	protected Command lift = new LiftCheck(); 
 	protected Command lift1 = new LiftCheck1();
 	protected Command pickUpTote = new PickUpTote();
+	protected Command pickUpTote1 = new PickUpTote1();
 	protected Command lowerTote = new LowerTote();
+	protected Command lowerTote1 = new LowerTote1();
 	protected Command pickUpRecycleBin = new PickUpRecycleBin();
 	
 	protected Command inchLeft = new InchLeft();
@@ -77,23 +81,25 @@ public class OI {
 //		SmartDashboard.putData("Turn", turn);
 		SmartDashboard.putData("ZeroYaw", zero);
 //		s1.whenReleased(cTrig);
-//		s2.whenReleased(cTL45);
-//		s3.whenReleased(cTR45);
+		s2.whenReleased(lowerTote);
+		s3.whenReleased(pickUpTote);
 //		s4.whenReleased(cTL90);
 //		s5.whenReleased(cTR90);
 		s6.whenReleased(pickUpTote);
 		s7.whenReleased(lowerTote);
-		s10.whenReleased(lowerTote);
+//		s10.whenReleased(lowerTote);
 		s11.whenReleased(pickUpRecycleBin);
 		
-		sB4.whenReleased(inchLeft);
-		sB5.whenReleased(inchRight);
-		sB2.whenPressed(turnL5);
-		sB2.whileHeld(turnL10);
-		sB3.whenPressed(turnR5);
-		sB3.whileHeld(turnR10);
+//		sB4.whenReleased(inchLeft);
+//		sB5.whenReleased(inchRight);
+//		sB2.whenPressed(turnL5);
+//		sB2.whileHeld(turnL10);
+//		sB3.whenPressed(turnR5);
+//		sB3.whileHeld(turnR10);
 		
 		sB1.whenReleased(faceTote);
+		sB2.whenReleased(lowerTote1);
+		sB3.whenReleased(pickUpTote1);
 		
 		
 	}
