@@ -23,7 +23,8 @@ public class Trigger extends Move {
 		SmartDashboard.putNumber("Jy", OI.stick.getAxis(AxisType.kY));
 		SmartDashboard.putNumber("Jth", OI.stick.getAxis(AxisType.kThrottle));
 		SmartDashboard.putNumber("Jtw", tw);
-		drive(-6*y);
+		double dist = Double.parseDouble(SmartDashboard.getString("moveDist"));
+		drive(dist*-1*y);
     }
 
     // Called repeatedly when this Command is scheduled to run

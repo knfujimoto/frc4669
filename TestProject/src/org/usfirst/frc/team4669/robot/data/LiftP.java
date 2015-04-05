@@ -1,11 +1,10 @@
 package org.usfirst.frc.team4669.robot.data;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class DriveV extends Subsystem {
+public class LiftP extends Subsystem {
 	public CANTalon drive;
 	public PIDParam pidP;
 	public CANTalon drive1;
@@ -41,18 +40,17 @@ public class DriveV extends Subsystem {
 	protected boolean last = false;
 	protected int clearCount = 0;
 	
-	public DriveV(int id, boolean brakeMode, int id1, boolean brakeMode1) {
+	public LiftP(int id, boolean brakeMode, int id1, boolean brakeMode1) {
 		super();
 		drive = new CANTalon(id);
-		drive.changeControlMode(CANTalon.ControlMode.Speed);
+		drive.changeControlMode(CANTalon.ControlMode.Position);
 		drive.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		drive.enableBrakeMode(brakeMode);
 		drive1 = new CANTalon(id1);
-		drive1.changeControlMode(CANTalon.ControlMode.Speed);
+		drive1.changeControlMode(CANTalon.ControlMode.Position);
 		drive1.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		drive1.enableBrakeMode(brakeMode);
 		state = 0;
-
 	}
 
 	protected void calcProfile() {
@@ -100,20 +98,20 @@ public class DriveV extends Subsystem {
 			if (t < accTime) {
 				int x = (int) ((t - (t % periodMs))/ periodMs);
 				if (isPositive) {
-					v = velocity[x];
+					v = position[x];
 					drive.set(v);
 					SmartDashboard.putNumber("rightSet", v);
 				} else {
-					v = -velocity[x];
+					v = -position[x];
 					drive.set(v);
 					SmartDashboard.putNumber("rightSet", v);
 				}
 				if (isPos1) {
-					v1 = velocity[x];
+					v1 = position[x];
 					drive1.set(v1);
 					SmartDashboard.putNumber("leftSet", v1);
 				} else {
-					v1 = -velocity[x];
+					v1 = -position[x];
 					drive1.set(v1);
 					SmartDashboard.putNumber("leftSet", v1);
 				}

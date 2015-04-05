@@ -16,6 +16,7 @@ public class DriveCheck extends Command {
     public DriveCheck() {
     	requires(Robot.driveTrain);
     }
+    
 
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -37,7 +38,7 @@ public class DriveCheck extends Command {
     	Robot.driveTrain.minV= (Double.parseDouble(SmartDashboard.getString("minV")));
     	Robot.driveTrain.acc= (Double.parseDouble(SmartDashboard.getString("acc")));
     	Robot.driveTrain.div= (Double.parseDouble(SmartDashboard.getString("div")));
-    	double dist = Double.parseDouble(SmartDashboard.getString("distance"));
+    	double dist = Double.parseDouble(SmartDashboard.getString("moveDist"));
       	Robot.driveTrain.move(dist);
     }
 
